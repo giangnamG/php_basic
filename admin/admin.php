@@ -28,36 +28,7 @@
     <title>manager</title>
 </head>
 <body>
-    <script>
-            tab_content =`
-            <tr>
-                <td width="5%"><center>Id</center></td>
-                <td width="25%"><center>Username</center></td>
-                <td width="25%"><center>Password</center></td>
-                <td width="30%"><center>Email</center></td>
-                <td width="15%"><center>Hành Động</center></td>
-            </tr>`
-    </script>
-    <?php foreach($users as $each_user): ?>
-            <script>
-                tab_content += `
-                <tr>
-                    <td width="5%"><center><?php echo $each_user['id']?></center></td>
-                    <td width="25%"><center><?php echo $each_user['username']?></center></td>
-                    <td width="25%"><center><?php echo $each_user['password']?></center></td>
-                    <td width="30%"><center><?php echo $each_user['email']?></center></td>
-                    <td width="15%"><center>
-                        <a href="#">edit</a>
-                        <a href="#">delete</a>
-                    </center></td>
-                </tr>`
-        </script>
-    <?php endforeach?>
-    <script>
-        function render_user(tab_content){
-            document.getElementById('content-users').innerHTML=tab_content;
-        }
-    </script> 
+    
 
     <div class="hi-admin">
         <h4>hi admin</h4>
@@ -70,7 +41,7 @@
         <center style="color: red;">admin option</center>
         <table id="table-option" border="1" width="95%">
             <tr>
-                <td width="50%"><a href="#" onclick="user_user(tab_content)"><center>edit users</center></a></td>
+                <td width="50%"><a href="#" onclick="user_user()"><center>edit users</center></a></td>
                 <td width="50%"><a href="#" onclick="product()"><center>edit product</center></a></td>
             </tr>
         </table>
@@ -79,7 +50,34 @@
 
     <div id="renderUsers">
         <table border="1"width="90.5%" id="content-users"></table>
-        
+        <script>
+            tab_content =`
+            <tr>
+                <td width="5%"><center>Id</center></td>
+                <td width="25%"><center>Username</center></td>
+                <td width="25%"><center>Password</center></td>
+                <td width="30%"><center>Email</center></td>
+                <td width="15%"><center>Hành Động</center></td>
+            </tr>`
+        </script>
+        <?php foreach($users as $each_user): ?>
+                <script>
+                    tab_content += `
+                    <tr>
+                        <td width="5%"><center><?php echo $each_user['id']?></center></td>
+                        <td width="25%"><center><?php echo $each_user['username']?></center></td>
+                        <td width="25%"><center><?php echo $each_user['password']?></center></td>
+                        <td width="30%"><center><?php echo $each_user['email']?></center></td>
+                        <td width="15%"><center>
+                            <a href="#">edit</a>
+                            <a href="#">delete</a>
+                        </center></td>
+                    </tr>`
+            </script>
+        <?php endforeach?>
+        <script>
+                document.getElementById('content-users').innerHTML=tab_content;
+        </script> 
         
     </div>
 </body>

@@ -8,12 +8,12 @@
             if(mysqli_num_rows(mysqli_query($conn,$sql))){
                 echo "<script>window.location='./mainpage.php'</script>";
             }else{
-            echo "<script>alert('username or password is wrong !')</script>";
-            echo "<script>window.location='./index.html'</script>";
+                echo "<script>alert('username or password is wrong !')</script>";
+                echo "<script>window.location='./index.php'</script>";
             }
         }else{
             echo "<script>alert('empty info !')</script>";
-            echo "<script>window.location='./index.html'</script>";
+            echo "<script>window.location='./index.php'</script>";
         }
     }
 ?>
@@ -29,7 +29,7 @@
 <body>
     <div>
         <h3>login</h3>
-        <form action="./login.php" method="POST" name="login">
+        <form action="" method="POST" name="login">
             <label>Username</label>&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text" name="username" placeholder="username or email">
             &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;
