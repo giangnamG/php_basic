@@ -1,6 +1,9 @@
 <?php
     session_start();
-
+    if(!isset($_SESSION['logged-admin'])){
+        echo "<script>alert('you are not admin')</script>";
+        echo "<script>window.location='./index.php'</script>";
+    }
     function renderUsers(){
         $conn=mysqli_connect("localhost:3325","root","","php_web3");
         $sql = "select * from `user-login`";
@@ -14,7 +17,15 @@
         }
         return $users;
     }
+    function logout(){
+        if(isset($_GET['logout'])){
+            unset($_SESSION['logged-admin']);
+            echo "<script>window.location='./index.php'</script>";
+        }
+    }
+
     $users = renderUsers();
+    logout();
 ?>
 
 <!DOCTYPE html>
@@ -28,8 +39,6 @@
     <title>manager</title>
 </head>
 <body>
-    
-
     <div class="hi-admin">
         <h4>hi admin</h4>
         <form action="" method="get">

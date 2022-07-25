@@ -1,3 +1,17 @@
+<?php
+    if(!isset($_SESSION['logged'])){
+        echo "<script>alert('sign pls')</script>";
+        echo "<script>window.location='./index.php'</script>";
+    }
+    function logout(){
+        if(isset($_GET['logout'])){
+            unset($_SESSION['logged']);
+            echo "<script>window.location='./index.php'</script>";
+        }
+    }
+    logout();
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +21,12 @@
     <title>mani page</title>
 </head>
 <body>
-    hi there
+    
+    <div class="hi-admin">
+        <h4>hi there</h4>
+        <form action="" method="get">
+            <input type="submit" name="logout" value="logout">
+        </form>
+    </div>
 </body>
 </html>

@@ -1,11 +1,15 @@
 <?php
     require './config.php';
+    if(isset($_SESSION['logged-admin']))
+        echo "<script>window.location='./admin.php'</script>";
+
     if(isset($_POST['login'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
         if($username!="" && $password!=""){
             $sql="select * from `user-login` where username='$username' and password='$password'";
             if(mysqli_num_rows(mysqli_query($conn,$sql))){
+                $_SESSION['logged-admin']=1;
                 echo "<script>window.location='./admin.php'</script>";
             }else{
             echo "<script>alert('username or password is wrong !')</script>";
