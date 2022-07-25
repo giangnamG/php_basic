@@ -56,7 +56,6 @@
         </table>
     </div>
     <br><br><br>
-
     <div id="renderUsers">
         <table border="1"width="90.5%" id="content-users"></table>
         <script>
